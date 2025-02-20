@@ -1,0 +1,7 @@
+tk
+Pillow
+cairosvg
+cairocffi
+pyinstaller
+pygame
+requests==2.26.0 

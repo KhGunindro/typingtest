@@ -1,0 +1,8 @@
+.venv/
+build/
+dist/
+round1.txt
+round2.txt
+round3.txt
+typing_scores.db
+.server/typing_scores.db
