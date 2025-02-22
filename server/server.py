@@ -47,7 +47,7 @@ class ServerScore(Base):
     average_accuracy = Column(Float)
     average_error_rate = Column(Float)
     
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=lambda: datetime.now(datetime.timezone.utc))
     test_duration = Column(Integer)  # in seconds
     ip_address = Column(String)
 
