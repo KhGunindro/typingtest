@@ -1,5 +1,4 @@
 import tkinter as tk
-import random
 import time
 import sqlite3
 import os
@@ -10,7 +9,6 @@ import io
 import threading
 import pygame
 import requests
-import json
 import tkinter.messagebox as messagebox
 
 def load_texts_from_files():
@@ -135,6 +133,9 @@ class TypingTest:
         )
         self.name_entry.pack(pady=20)
         self.name_entry.focus()
+        
+        # Bind Enter key to start the test
+        self.name_entry.bind("<Return>", lambda event: self.start_test())
         
         start_button = tk.Button(
             self.name_frame,
@@ -464,13 +465,13 @@ class TypingTest:
     def time_up(self):
         if self.entry['state'] != 'disabled':  # Only if test hasn't been submitted
             self.calculate_results()
-            self.timer_label.config(text="Time's up!", fg="#E74C3C")
+            self.timer_label.config(text="Time's up!", fg="#E74C3E")
             
             # Auto-advance to next round after a short delay
             self.root.after(2000, self.next_round)
 
     def check_typing(self, event):
-        if self.start_time is None:
+        if self.start_time is None and self.typed_text.get():
             self.start_time = time.time()
             self.start_timer()
         
