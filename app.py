@@ -94,7 +94,7 @@ class TypingTest:
 
         def configure_canvas(event):
             self.canvas.itemconfig(canvas_frame, width=event.width)
-        self.canvas.bind('<Configure>', configure_canvas)
+            self.canvas.bind('<Configure>', configure_canvas)
 
         self.canvas.configure(yscrollcommand=self.scrollbar.set)
 
@@ -102,7 +102,7 @@ class TypingTest:
         self.scrollbar.pack(side="right", fill="y")
         self.canvas.pack(side="left", fill="both", expand=True)
 
-        # Add mousewheel scrolling
+        # Add mousewheel scrolling (not working)
         self.canvas.bind_all("<MouseWheel>", self._on_mousewheel)
 
         # Initialize database
@@ -132,7 +132,8 @@ class TypingTest:
             justify='center'
         )
         self.name_entry.pack(pady=20)
-        self.name_entry.focus()
+        # Ensure focus is set after a short delay
+        self.name_entry.after(100, self.name_entry.focus_set)
         
         # Bind Enter key to start the test
         self.name_entry.bind("<Return>", lambda event: self.start_test())
@@ -746,7 +747,7 @@ class TypingTest:
         self.update_round()
 
     def _on_mousewheel(self, event):
-        self.canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        self.canvas.yview_scroll(-1 * (event.delta // 120), "units")
 
 if __name__ == "__main__":
     root = tk.Tk()
