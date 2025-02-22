@@ -7,8 +7,8 @@ import sys
 from PIL import Image, ImageTk
 import cairosvg
 import io
-import pygame
 import threading
+import pygame
 import requests
 import json
 import tkinter.messagebox as messagebox
