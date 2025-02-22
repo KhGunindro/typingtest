@@ -471,7 +471,7 @@ class TypingTest:
             self.root.after(2000, self.next_round)
 
     def check_typing(self, event):
-        if self.start_time is None:
+        if self.start_time is None and self.typed_text.get():
             self.start_time = time.time()
             self.start_timer()
         
