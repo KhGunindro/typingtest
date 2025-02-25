@@ -1,7 +1,4 @@
-tkinter
-Pillow
-cairosvg
 cairocffi
 pyinstaller
-pygame
-requests==2.26.0 
+cairosvg==2.7.1
+pillow==11.1.0
