@@ -1,7 +1,8 @@
 import tkinter as tk
 import time
 import sqlite3
-import os
+#import os
+#os.environ['path'] += r';C:\path\cairo\dlls'
 import sys
 from PIL import Image, ImageTk
 import cairosvg
